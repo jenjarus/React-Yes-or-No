@@ -1,8 +1,11 @@
 import React from "react";
 import ResultItem from './ResultItem'
-import { connect } from 'react-redux'
+import { useSelector } from 'react-redux'
 
-const Results = ({count, items}) => {
+const Results = () => {
+    const count = useSelector((store) => store.count);
+    const items = useSelector((store) => store.items);
+
     return (
     <div className="result_box">
         <div className="top">
@@ -19,13 +22,6 @@ const Results = ({count, items}) => {
         </div>
     </div>
     );
-}
+};
 
-function mapStateToProps(state) {
-    return {
-        count: state.count,
-        items: state.items
-    }
-}
-
-export default connect(mapStateToProps)(Results)
+export default Results;

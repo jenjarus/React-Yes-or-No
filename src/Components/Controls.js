@@ -1,19 +1,27 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { addItem, Reset } from '../actions'
 
-const Controls = ({addItem, Reset}) => {
+const Controls = () => {
+    const dispatch = useDispatch();
+
+    const ResetItem = () =>{
+        dispatch(Reset())
+    };
+
+    const randomizeItem = () => {
+        let answer;
+        const random = Math.floor(Math.random() * 2) + 1;
+        random > 1 ? answer = 'Нет' : answer = 'Да';
+        dispatch(addItem(answer))
+    };
+
     return (
         <div className="btns">
-            <button className="btn random" onClick={addItem}>Узнать</button>
-            <button className="btn reset" onClick={Reset}>Очистить</button>
+            <button className="btn random" onClick={randomizeItem}>Узнать</button>
+            <button className="btn reset" onClick={ResetItem}>Очистить</button>
         </div>
     );
 };
 
-const mapDipatchToProps = {
-    addItem,
-    Reset
-};
-
-export default connect(null, mapDipatchToProps)(Controls)
+export default Controls;
