@@ -1,9 +1,11 @@
-const initialState = {
+import { IReduxState, IAction } from "./types"
+
+const initialState: IReduxState = {
     count: 0,
     items: []
 };
 
-export default function reducer(state = initialState, action) {
+export default function reducer(state = initialState, action: IAction) {
     switch(action.type) {
         case 'ADD_ITEM':
             return {

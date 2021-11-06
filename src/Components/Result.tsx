@@ -1,10 +1,11 @@
 import React from "react";
 import ResultItem from './ResultItem'
 import { useSelector } from 'react-redux'
+import { IReduxState } from "../types"
 
 const Results = () => {
-    const count = useSelector((store) => store.count);
-    const items = useSelector((store) => store.items);
+    const count = useSelector((store: IReduxState) => store.count);
+    const items = useSelector((store: IReduxState) => store.items);
 
     return (
     <div className="result_box">

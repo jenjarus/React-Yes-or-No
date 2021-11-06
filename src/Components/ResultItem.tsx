@@ -1,8 +1,12 @@
 import React from "react";
 
-const ResultItem = ({item}) => {
+interface IPropsResultItem {
+    item: string
+}
+
+const ResultItem: React.FC<IPropsResultItem> = ({item}) => {
     return (
             <div className="item">Ответ - <b>{item}</b></div>
     );
-}
+};
 export default ResultItem;
